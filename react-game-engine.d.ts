@@ -3,11 +3,10 @@
 
 declare module "react-game-engine" {
   import * as React from "react";
-  import { StyleProp, ViewStyle, ScaledSize } from "react-native";
 
   interface DefaultRendererOptions {
     state: any;
-    screen: ScaledSize;
+    window: Window;
   }
 
   export function DefaultRenderer(defaultRendererOptions: DefaultRendererOptions): any;
@@ -32,7 +31,7 @@ declare module "react-game-engine" {
   export interface GameEngineUpdateEventOptionType {
     dispatch: (event: any) => void;
     events: Array<any>;
-    screen: ScaledSize;
+    window: Window;
     time: TimeUpdate;
     touches: Array<TouchEvent>;
   }
@@ -47,7 +46,8 @@ declare module "react-game-engine" {
     timer?: any;
     running?: boolean;
     onEvent?: any;
-    style?: StyleProp<ViewStyle>;
+    /** An object containing styles for the root container */
+    style?: React.CSSProperties;
     children?: React.ReactNode;
   }
 
@@ -80,7 +80,7 @@ declare module "react-game-engine" {
 
   interface GameLoopUpdateEventOptionType {
     touches: TouchEvent[];
-    screen: ScaledSize;
+    window: Window;
     time: TimeUpdate;
   }
 
@@ -89,7 +89,8 @@ declare module "react-game-engine" {
     timer?: any;
     running?: boolean;
     onUpdate?: (args: GameLoopUpdateEventOptionType) => void;
-    style?: StyleProp<ViewStyle>;
+    /** An object containing styles for the root container */
+    style?: React.CSSProperties;
     children?: React.ReactNode;
   }
 
