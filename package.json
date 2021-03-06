@@ -11,6 +11,7 @@
   "jest": {
     "testURL": "http://localhost/"
   },
+  "types": "react-native-game-engine.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bberak/react-game-engine.git"
